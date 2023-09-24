@@ -1,7 +1,13 @@
 import { View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Entypo } from "@expo/vector-icons";
+import { useAtom } from "jotai";
+import { messagesAtom } from "@/stores/messages";
 export default function Header() {
+  const [messages, setMessages] = useAtom(messagesAtom);
+  function resetMessages() {
+    setMessages([]);
+  }
   return (
     <View
       style={{
@@ -9,7 +15,7 @@ export default function Header() {
         height: 50,
         paddingHorizontal: 25,
         flexDirection: "row",
-        alignItems: "center",
+        justifyContent: "flex-end",
       }}
     >
       <TouchableOpacity
@@ -21,6 +27,7 @@ export default function Header() {
           alignItems: "center",
           backgroundColor: "rgba(0,0,0,0.05)",
         }}
+        onPress={resetMessages}
       >
         <Entypo name="plus" size={24} color="black" />
       </TouchableOpacity>

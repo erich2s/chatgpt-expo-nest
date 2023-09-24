@@ -2,15 +2,23 @@ import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useMemo, useState } from "react";
+import { useAtom } from "jotai";
+import { messagesAtom } from "@/stores/messages";
 export default function InputMsg() {
   const [text, setText] = useState("");
   const isEmpty = useMemo(() => {
     return text.length === 0;
   }, [text]);
+
+  const [messages, setMessages] = useAtom(messagesAtom);
+  function send() {
+    setMessages([...messages, { isBot: false, text }]);
+    setText("");
+  }
   return (
     <View
       style={{
-        position: "absolute",
+        position: "relative",
         bottom: 0,
         width: "100%",
         flexDirection: "row",
@@ -35,9 +43,6 @@ export default function InputMsg() {
         placeholderTextColor="#9ca3af"
         onChangeText={(text) => setText(text)}
         value={text}
-        onKeyPress={(e) => {
-          console.log(e.nativeEvent.key);
-        }}
       />
       <TouchableOpacity
         disabled={isEmpty}
@@ -49,10 +54,7 @@ export default function InputMsg() {
           backgroundColor: isEmpty ? "#a78bfa" : "#a21caf",
           borderRadius: 9999,
         }}
-        onPress={() => {
-          alert(text);
-          setText("");
-        }}
+        onPress={send}
       >
         <Feather name="send" size={20} color="white" />
       </TouchableOpacity>

@@ -1,14 +1,8 @@
-import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-  Text,
-  View,
-} from "react-native";
+import { KeyboardAvoidingView, Platform, View } from "react-native";
 import InputMsg from "@/components/input-msg";
 import ChatWindow from "@/components/chat-window";
 import { StatusBar } from "expo-status-bar";
+
 export default function index() {
   return (
     <KeyboardAvoidingView

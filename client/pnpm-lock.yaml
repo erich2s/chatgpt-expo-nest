@@ -38,6 +38,9 @@ dependencies:
   expo-web-browser:
     specifier: ~12.3.2
     version: 12.3.2(expo@49.0.11)
+  jotai:
+    specifier: ^2.4.2
+    version: 2.4.2(@types/react@18.2.22)(react@18.2.0)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -2666,7 +2669,6 @@ packages:
 
   /@types/prop-types@15.7.7:
     resolution: {integrity: sha512-FbtmBWCcSa2J4zL781Zf1p5YUBXQomPEcep9QZCfRfQgTxz3pJWiDFLebohZ9fFntX5ibzOkSsrJ0TEew8cAog==}
-    dev: true
 
   /@types/qs@6.9.8:
     resolution: {integrity: sha512-u95svzDlTysU5xecFNTgfFG5RUWu1A9P0VzgpcIiGZA9iraHOdSzcxMxQ55DyeRaGCSxQi7LxXDI4rzq/MYfdg==}
@@ -2678,11 +2680,9 @@ packages:
       '@types/prop-types': 15.7.7
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
-    dev: true
 
   /@types/scheduler@0.16.3:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
-    dev: true
 
   /@types/stack-utils@2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
@@ -3705,7 +3705,6 @@ packages:
 
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
-    dev: true
 
   /dag-map@1.0.2:
     resolution: {integrity: sha512-+LSAiGFwQ9dRnRdOeaj7g47ZFJcOUPukAP8J3A3fuZ1g9Y44BG+P1sgApjLXTQPOzC4+7S9Wr8kXsfpINM4jpw==}
@@ -5588,6 +5587,22 @@ packages:
 
   /join-component@1.1.0:
     resolution: {integrity: sha512-bF7vcQxbODoGK1imE2P9GS9aw4zD0Sd+Hni68IMZLj7zRnquH7dXUmMw9hDI5S/Jzt7q+IyTXN0rSg2GI0IKhQ==}
+    dev: false
+
+  /jotai@2.4.2(@types/react@18.2.22)(react@18.2.0):
+    resolution: {integrity: sha512-90jXVOd9h6gi5JXk558M+wnJfaaVN2WegcNOCfiFbWboNaDl6DkRgiY/K1oeqTfYJmq8yM7XPsL99LAvcOPqhw==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=17.0.0'
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@types/react': 18.2.22
+      react: 18.2.0
     dev: false
 
   /js-tokens@4.0.0:
