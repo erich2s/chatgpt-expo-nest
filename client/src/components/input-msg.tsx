@@ -4,6 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import { useMemo, useState } from "react";
 import { useAtom } from "jotai";
 import { messagesAtom } from "@/stores/messages";
+import { chat } from "@/utils/api";
 export default function InputMsg() {
   const [text, setText] = useState("");
   const isEmpty = useMemo(() => {
@@ -11,9 +12,13 @@ export default function InputMsg() {
   }, [text]);
 
   const [messages, setMessages] = useAtom(messagesAtom);
-  function send() {
-    setMessages([...messages, { isBot: false, text }]);
+  async function send() {
+    const temp = text;
     setText("");
+    setMessages((prev) => [...prev, { isBot: false, text: temp }]);
+    const res = await chat(temp);
+    console.log(res);
+    setMessages((prev) => [...prev, { isBot: true, text: res }]);
   }
   return (
     <View

@@ -3,10 +3,17 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Entypo } from "@expo/vector-icons";
 import { useAtom } from "jotai";
 import { messagesAtom } from "@/stores/messages";
+import { resetHistory } from "@/utils/api";
 export default function Header() {
   const [messages, setMessages] = useAtom(messagesAtom);
   function resetMessages() {
-    setMessages([]);
+    resetHistory()
+      .then(() => {
+        setMessages([]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   return (
     <View

@@ -11,10 +11,10 @@ export default function ChatWindow() {
   const flatListRef = useRef<FlatList>(null);
   useEffect(() => {
     if (flatListRef.current) {
-      console.log("scroll to end");
       flatListRef.current.scrollToEnd({ animated: true });
     }
   }, [messages]);
+
   return (
     <View style={{ flex: 1, width: "100%" }}>
       {messages.length > 0 ? (

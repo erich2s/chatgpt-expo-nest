@@ -16,23 +16,25 @@ export class ChatgptService {
   }
 
   async createCompletion(prompt: string) {
-    const stream = await this.openai.chat.completions.create({
+    const completion = await this.openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [...this.history, { role: 'user', content: prompt }],
-      stream: true,
     });
-    let response = '';
-    for await (const part of stream) {
-      if (part.choices[0].finish_reason === 'stop') break;
-      response += part.choices[0].delta.content;
-    }
-    this.history.push({ role: 'user', content: prompt });
-    this.history.push({ role: 'assistant', content: response });
 
-    return response;
+    this.history.push({ role: 'user', content: prompt });
+    this.history.push({
+      role: 'assistant',
+      content: completion.choices[0].message.content,
+    });
+
+    return completion.choices[0].message;
   }
 
   async getHistory() {
     return this.history;
+  }
+  async resetHistory() {
+    this.history = [{ role: 'system', content: 'You are a helpful chatbot.' }];
+    return { length: this.history.length };
   }
 }

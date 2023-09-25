@@ -23,4 +23,8 @@ export class ChatgptController {
   getHistory() {
     return this.chatgptService.getHistory();
   }
+  @Delete('resetHistory')
+  resetHistory() {
+    return this.chatgptService.resetHistory();
+  }
 }
