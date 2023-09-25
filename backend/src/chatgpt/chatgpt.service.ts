@@ -20,7 +20,6 @@ export class ChatgptService {
       model: 'gpt-3.5-turbo',
       messages: [...this.history, { role: 'user', content: prompt }],
     });
-
     this.history.push({ role: 'user', content: prompt });
     this.history.push({
       role: 'assistant',

@@ -10,6 +10,11 @@ A ChatGPT clone using Expo, NestJS, and OpenAI's GPT-3.5 turbo api.
 ```bash
 cd backend
 pnpm install
+```
+
+And create .env file from .env.example and set your OpenAI API key. Then:
+
+```bash
 pnpm run start:dev
 ```
 
