@@ -7,15 +7,15 @@ export default function logo() {
         gap: 3,
         position: "absolute",
         alignSelf: "center",
-        top: "52%",
+        top: "50%",
         transform: [{ translateY: -50 }],
       }}
     >
       <Image
         source={require("@/assets/chatgpt.png")}
         style={{
-          width: 50,
-          height: 50,
+          width: 65,
+          height: 65,
           resizeMode: "contain",
           alignSelf: "center",
         }}
@@ -26,7 +26,7 @@ export default function logo() {
           alignItems: "center",
           textAlign: "center",
           fontWeight: "600",
-          fontSize: 20,
+          fontSize: 24,
         }}
       >
         ChatGPT
@@ -40,7 +40,7 @@ export default function logo() {
           color: "#9ca3af",
         }}
       >
-        expo-nest-clone
+        expo-nest
       </Text>
     </View>
   );

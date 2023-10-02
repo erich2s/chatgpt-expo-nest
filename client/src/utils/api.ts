@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:3000";
-export function chat(prompt: string) {
-  return fetch(baseUrl + "/chat", {
+export async function chat(prompt: string) {
+  const res = await fetch(baseUrl + "/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -8,9 +8,9 @@ export function chat(prompt: string) {
     body: JSON.stringify({
       prompt: prompt,
     }),
-  })
-    .then((res) => res.json())
-    .then((res) => res.content);
+  });
+  const result = await res.json();
+  return result.content;
 }
 export async function resetHistory() {
   const res = await fetch(baseUrl + "/resetHistory", {
