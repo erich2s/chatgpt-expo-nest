@@ -80,7 +80,12 @@ export default function ChatWindow() {
                       maxWidth: "80%",
                     }}
                   >
-                    <Text style={{ color: item.isBot ? "black" : "white" }}>
+                    <Text
+                      style={{
+                        color: item.isBot ? "black" : "white",
+                        fontFamily: "Inter_500Medium",
+                      }}
+                    >
                       {item.text}
                     </Text>
                   </View>

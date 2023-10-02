@@ -2,8 +2,17 @@ import { KeyboardAvoidingView, Platform, View } from "react-native";
 import InputMsg from "@/components/input-msg";
 import ChatWindow from "@/components/chat-window";
 import { StatusBar } from "expo-status-bar";
-
+import { useFonts, Inter_400Regular,Inter_500Medium } from "@expo-google-fonts/inter";
 export default function index() {
+  let [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium
+  });
+
+  if (!fontsLoaded) {
+    console.log("loading");
+    return null;
+  }
   return (
     <KeyboardAvoidingView
       style={{
