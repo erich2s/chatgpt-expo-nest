@@ -2,8 +2,8 @@
   "name": "chatgpt-expo-nest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "dev": "turbo run dev --parallel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
